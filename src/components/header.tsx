@@ -10,7 +10,9 @@ export function Header(props: HeaderProps) {
     { title: "Home", link: "/" },
     { title: "About", link: "/about" },
     { title: "Contact", link: "/contact" },
+    { title: "Notes", link: "/notes" },
   ];
+
   return (
     <>
       <header className="bg-gray-800">
@@ -21,15 +23,13 @@ export function Header(props: HeaderProps) {
               <h1 className="text-white text-2xl ml-3">Tools</h1>
             </Link>
           </section>
-          <section role='navigation' className="navigation">
+          <section role='navigation'>
             <ul className="flex">
-              {data.map((item, index) => {
-                return (
-                  <li className="mr-4" key={index}>
-                    <a className="text-white hover:text-gray-300" href={item.link}>{item.title}</a>
-                  </li>
-                )
-              })}
+              {data.map((item, index) => (
+                <li className="mr-4" key={index}>
+                  <Link href={item.link} className="text-white hover:text-gray-300">{item.title}</Link>
+                </li>
+              ))}
             </ul>
           </section>
         </div>
